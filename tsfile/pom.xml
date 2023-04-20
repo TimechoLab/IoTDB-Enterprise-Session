@@ -99,7 +99,7 @@
         <dependency>
             <groupId>org.apache.iotdb</groupId>
             <artifactId>iotdb-antlr</artifactId>
-            <version>${project.version}</version>
+            <version>1.0.1</version>
         </dependency>
     </dependencies>
     <build>
