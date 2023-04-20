@@ -704,7 +704,7 @@
                     <groupId>org.apache.maven.plugins</groupId>
                     <artifactId>maven-javadoc-plugin</artifactId>
                     <configuration>
-                        <excludePackageNames>*thrift*</excludePackageNames>
+                        <!--                        <excludePackageNames>*thrift*</excludePackageNames>-->
                         <!--
                       This will suppress the generation of a hidden timestamp at the top of each generated html page
                       and hopefully let the site generation nod to too big updates every time.
@@ -833,11 +833,21 @@
         </pluginManagement>
         <plugins>
             <plugin>
+                <groupId>org.sonatype.plugins</groupId>
+                <artifactId>nexus-staging-maven-plugin</artifactId>
+                <version>1.6.7</version>
+                <extensions>true</extensions>
+                <configuration>
+                    <serverId>ossrh</serverId>
+                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
+                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
+                </configuration>
+            </plugin>
+            <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
                 <artifactId>maven-javadoc-plugin</artifactId>
-                <version>2.9.1</version>
                 <configuration>
-                    <excludePackageNames>*thrift*</excludePackageNames>
+                    <!--                    <excludePackageNames>*thrift*</excludePackageNames>-->
                     <!--
                   This will suppress the generation of a hidden timestamp at the top of each generated html page
                   and hopefully let the site generation nod to too big updates every time.
@@ -854,17 +864,6 @@
                         </goals>
                     </execution>
                 </executions>
-            </plugin>
-            <plugin>
-                <groupId>org.sonatype.plugins</groupId>
-                <artifactId>nexus-staging-maven-plugin</artifactId>
-                <version>1.6.7</version>
-                <extensions>true</extensions>
-                <configuration>
-                    <serverId>ossrh</serverId>
-                    <nexusUrl>https://s01.oss.sonatype.org/</nexusUrl>
-                    <autoReleaseAfterClose>true</autoReleaseAfterClose>
-                </configuration>
             </plugin>
             <plugin>
                 <groupId>org.apache.maven.plugins</groupId>
